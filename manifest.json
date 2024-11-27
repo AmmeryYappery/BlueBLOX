@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Rolimon Trade Value",
+    "description": "I dont wan't to pay for ropro",
+    "version": "0.0.1",
+    "action": {
+        "default_icon": "Images/Favicon.png"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [{
+        "matches": ["https://www.roblox.com/*"],
+        "js": ["JS/script.js"],
+        "css": ["CSS/styles.css"]
+    }],
+    "background": {
+        "service_worker": "JS/service.js"
+    },
+    "web_accessible_resources": [{
+        "resources": ["*.png"],
+    		"matches": ["https://www.roblox.com/*"]
+		}
+	]
+}

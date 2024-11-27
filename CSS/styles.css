@@ -1,0 +1,28 @@
+.fucking-rolimon-value {
+    background-image: linear-gradient(90deg, rgba(91,206,250,1) 25%, rgba(255,255,255,1) 50%, rgba(245,169,184,1) 75%, rgba(121,9,111,1) 450%);
+    color: transparent !important;
+    font-weight: bold !important;
+    background-clip: text;
+}
+
+.fucking-icon {
+    width: 22px;
+    height: 16px;
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fucking-testing {
+    float: right;
+}
+
+.fucking-transmons-icon { background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/transmons.png"); }
+.fucking-rolimon-icon { background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/RolimonValue.png"); }
+.fucking-projected-icon {background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/Projected.png");}
+.fucking-rare-icon {background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/Rare.png");}
+.fucking-unknown-icon {background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/Unknown.png");}
+.fucking-winning-icon {background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/Winning.png");}
+.fucking-losing-icon {background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/Losing.png");}
+.fucking-hype-icon {background-image: url("chrome-extension://anhmcajlmnfnklfnfildkgbnklenjlln/Images/Hype.png");}
