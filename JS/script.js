@@ -82,7 +82,7 @@ var offers;
 const ITEM_TO_TOTAL_RATIO = 0.3; // If an item's ratio to the total value of the trade is less than this, then don't add its name to the proof.
 // trade-list-detail-offer
 // item-card-caption'
-async function addValueToItem(observer, newOffers, receiver) {
+function addValueToItem(observer, newOffers, receiver) {
     if(!offers || !areSameLists(offers, newOffers)) {
         observer.disconnect();
         offers = newOffers;
@@ -185,23 +185,23 @@ async function addValueToItem(observer, newOffers, receiver) {
             date = selected[0].getElementsByClassName('trade-sent-date')[0];
         }
 
-        let dateText;
+        // let dateText;
 
-        if(date.innerText.match('[0-9]+/[0-9]+/[0-9]+')) {
-            dateText = date.innerText;
-        } else {
-            dateText = date.title;
-        }
+        // if(date.innerText.match('[0-9]+/[0-9]+/[0-9]+')) {
+        //     dateText = date.innerText;
+        // } else {
+        //     dateText = date.title;
+        // }
 
-        if(offerValue > 0 && requestValue > 0 && date != undefined) {
-            const proof = proofItems + "\n" + 
-            `Values: ${addCommasToNumber(offerValue)} VS ${addCommasToNumber(requestValue)}` + "\n" +
-            `Sender: ${proofSender}` + "\n" + 
-            `Receiver: ${receiver}` + "\n" + 
-            `Date: ${dateText}`;
+        // if(offerValue > 0 && requestValue > 0 && date != undefined) {
+        //     const proof = proofItems + "\n" + 
+        //     `Values: ${addCommasToNumber(offerValue)} VS ${addCommasToNumber(requestValue)}` + "\n" +
+        //     `Sender: ${proofSender}` + "\n" + 
+        //     `Receiver: ${receiver}` + "\n" + 
+        //     `Date: ${dateText}`;
 
-            console.log(proof);
-        }
+        //     console.log(proof);
+        // }
         
     }
 }
@@ -214,7 +214,7 @@ const callback = (mutationList, observer) => {
 }
 
 
-const target = document.getElementsByClassName('trades-list-detail')[0];
+const target = document.getElementsByTagName('body');
 const config = {childList : true, subtree: true};
 
 const observer = new MutationObserver(callback);
