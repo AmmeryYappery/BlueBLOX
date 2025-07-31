@@ -50,6 +50,7 @@ function getProjHypeOrRareDivs(itemArray) {
 
     var divs = document.createDocumentFragment();
 
+    console.log(isProj);
     if (isProj) { divs.appendChild(createIcon('fucking-projected-icon')); }
     if (isHype) { divs.appendChild(createIcon('fucking-hype-icon')); }
     if (isRare) { divs.appendChild(createIcon('fucking-rare-icon')); }
@@ -108,47 +109,48 @@ function addValueToItem(observer, newOffers, receiver) {
             const senderElements = document.getElementsByClassName('element');
             
             let itemValues = 0;
-            var sideData = [];
+            //var sideData = [];
             for(let j = 0; j < items.length; j++) {
                 if(!items[j].getElementsByClassName('fucking-rolimon-value').length > 0 && itemsData != undefined) {
-                    const id = items[j].getElementsByTagName('a')[0].href.match("[0-9]+")[0]; // Only one link so it will be the first index.
+                    const id = items[j].getElementsByTagName('a')[0].href.match("[0-9]+")[0]; 
                     const itemData = itemsData['items'][id];
-                    const itemValue = itemData[4];
+                    itemValue = itemData[4];
+                    div = valueDiv(getProjHypeOrRareDivs(itemData), addCommasToNumber(itemValue), 'text-robux');
+                    //sideData.push(itemData);
 
-                    sideData.push(itemData);
-
-                    const div = valueDiv(getProjHypeOrRareDivs(itemData), addCommasToNumber(itemValue), 'text-robux');
+                    console.log(items[j]);
                     items[j].appendChild(div);
 
                     itemValues += itemValue;
+
                 }
             }
 
-            for(let j = 0; j < sideData.length; j++) {
-                const itemData = sideData[j];
-                let proofAcro = itemData[1]
+            // for(let j = 0; j < sideData.length; j++) {
+            //     const itemData = sideData[j];
+            //     let proofAcro = itemData[1]
 
-                let isNotSignificantItem = itemData[4]/itemValues < ITEM_TO_TOTAL_RATIO;
+            //     let isNotSignificantItem = itemData[4]/itemValues < ITEM_TO_TOTAL_RATIO;
 
-                if(isNotSignificantItem && j == sideData.length-1) {
-                    proofItems = proofItems.replace(new RegExp(", "), "");
-                    continue;
-                }
-                else if(isNotSignificantItem) {continue;}
-                if(proofAcro) { proofItems += `${proofAcro}`; }
-                else {
-                    proofItems += itemData[0];
-                }
+            //     if(isNotSignificantItem && j == sideData.length-1) {
+            //         proofItems = proofItems.replace(new RegExp(", "), "");
+            //         continue;
+            //     }
+            //     else if(isNotSignificantItem) {continue;}
+            //     if(proofAcro) { proofItems += `${proofAcro}`; }
+            //     else {
+            //         proofItems += itemData[0];
+            //     }
 
-                if(j != items.length-1) {
-                    proofItems += ", ";
-                }
-            }
+            //     if(j != items.length-1) {
+            //         proofItems += ", ";
+            //     }
+            // }
 
-            if(i != offers.length-1) { 
-                proofItems += " VS "; 
-                proofSender = senderElements[1].innerText;
-            }
+            // if(i != offers.length-1) { 
+            //     proofItems += " VS "; 
+            //     proofSender = senderElements[1].innerText;
+            // }
 
             const robuxAmount = parseInt(robuxLines[0].innerText.replace(",", ""));
             itemValues += Math.round(parseInt(robuxAmount, 10) / 0.7);
